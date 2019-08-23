@@ -19,3 +19,19 @@ class ResetPasswordRequestForm(FlaskForm):
 # Register request form
 class RegisterRequestForm(FlaskForm):
     submit = SubmitField('Click to Verify Your Email')
+
+
+# Login form
+class LoginForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    submit = SubmitField('Login')
+
+
+# Register form
+class RegisterForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    re_password = PasswordField('Entry again', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Register')
+
